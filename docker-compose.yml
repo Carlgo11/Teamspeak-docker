@@ -1,0 +1,12 @@
+version: "3"
+services:
+  teamspeak:
+    build: .
+    tty: true
+    ports:
+    - "9987:9987/udp"
+    - "30033"
+    - "10011"
+    - "4114"
+    volumes:
+    - ./ts3server_config.ini:/teamspeak/ts3server.ini
