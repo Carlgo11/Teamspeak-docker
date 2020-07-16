@@ -10,3 +10,5 @@ services:
     - "4114"
     volumes:
     - ./ts3server_config.ini:/teamspeak/ts3server.ini
+    - ./ts3db_mariadb.ini:/teamspeak/ts3db_mariadb.ini
+    - /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock

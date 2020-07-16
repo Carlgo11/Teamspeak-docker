@@ -7,4 +7,5 @@ RUN chmod +x install.sh
 RUN useradd -Ms /bin/bash teamspeak
 RUN ./install.sh
 USER teamspeak
+WORKDIR /teamspeak
 CMD ./run.sh
