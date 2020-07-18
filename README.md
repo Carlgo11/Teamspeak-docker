@@ -1,5 +1,9 @@
 # TeamSpeak3 Server as a Container
 
+![License](https://img.shields.io/github/license/Carlgo11/Teamspeak-docker?color=00b1d6&style=for-the-badge)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Carlgo11/Teamspeak-docker?sort=semver&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Carlgo11/Teamspeak-docker/docker?style=for-the-badge)
+
 ## Requirements
 
 To use this project you'll need:  
