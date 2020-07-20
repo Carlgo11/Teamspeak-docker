@@ -20,8 +20,10 @@ Optionally, if you intend to connect the ts3 server via MariaDB you'll need a Ma
 
 1. Download this project. `git clone https://github.com/Carlgo11/Teamspeak-docker.git; cd Teamspeak-docker/`
 1. Change the name of `ts3server_config.ini.sqlite-example` to `ts3server_config.ini`
+1. In `docker-compose.yml` add `- ./ts3server.sqlitedb:/teamspeak/ts3server.sqlitedb` to the volumes list.
 1. Build the container. `docker-compose up --build`
-1. Connect to the TeamSpeak3 server using the host IP.
+1. Connect to the TeamSpeak3 server using the host IP.  
+You'll find the ServerAdmin token in the window that you started the container in.
 
 ### MariaDB (MySQL)
 
@@ -36,7 +38,12 @@ Optionally, if you intend to connect the ts3 server via MariaDB you'll need a Ma
 ````
 
 5. Build the container. `docker-compose up --build`
-6. Connect to the TeamSpeak3 server using the host IP.
+6. Connect to the TeamSpeak3 server using the host IP.  
+You'll find the ServerAdmin token in the window that you started the container in.
+
+### Further options
+
+* Console access - In `docker-compose.yml` add `- "10011"` to the list of ports and restart the container.
 
 ## LICENSE
 

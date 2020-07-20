@@ -12,7 +12,7 @@ mv redist/* ./
 
 # Set permissions and remove unused files
 chown teamspeak:teamspeak /teamspeak -R
-chmod 400 ./*
+chmod 400 ./* -R
 chmod 500 ./{*.so,*.so.2,ts3server_startscript.sh,files,sql,logs}
 chmod 700 ./{files,logs}/ -R
 rm -rf {doc,CHANGELOG,serverquerydocs,redist}
