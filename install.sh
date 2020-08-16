@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Download latest ts3 server
 url=$(curl -s https://teamspeak.com/versions/server.json | jq -r '.linux.x86_64.mirrors."teamspeak.com"')
@@ -15,6 +15,6 @@ chown teamspeak:teamspeak /teamspeak -R
 chmod 400 ./* -R
 chmod 500 ./{*.so,*.so.2,ts3server_startscript.sh,files,sql,logs}
 chmod 700 ./{files,logs}/ -R
-rm -rf {doc,CHANGELOG,serverquerydocs,redist}
+rm -rf {doc,CHANGELOG,serverquerydocs,redist,teamspeak.tar.bz2}
 
 echo "Installation complete!"
