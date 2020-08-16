@@ -4,7 +4,7 @@ WORKDIR /teamspeak
 RUN apk --no-cache add curl jq wget bash libstdc++
 COPY --chown=root install.sh /teamspeak/install.sh
 RUN addgroup -S teamspeak && adduser -s /bin/bash -S teamspeak -G teamspeak
-RUN ./install.sh; rm ./install.sh
+RUN chmod +x install.sh; ./install.sh; rm ./install.sh
 RUN apk --no-cache del curl jq wget
 
 USER teamspeak
