@@ -1,10 +1,8 @@
 FROM alpine
-RUN mkdir /teamspeak
 WORKDIR /teamspeak
 
-RUN apk update > /dev/null; apk --no-cache add curl jq wget bash libstdc++
+RUN apk --force-refresh --no-cache --purge -f -u add curl jq wget bash libstdc++
 COPY install.sh install.sh
-RUN chmod 500 install.sh
 RUN addgroup -S teamspeak -g 1000 && adduser -u 1000 -s /bin/bash -S teamspeak -G teamspeak -H
 RUN ./install.sh
 RUN apk del curl jq wget
