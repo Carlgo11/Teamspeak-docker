@@ -7,13 +7,14 @@ wget "$download" -O teamspeak.tar.bz2
 
 # Create ts3 dir and unzip downloaded content
 tar -xjf teamspeak.tar.bz2 --strip-components=1
-mkdir {logs}
 mv redist/* ./
 
-# Set permissions and remove unused files
-chown teamspeak:teamspeak /teamspeak -R
-chmod 400 ./* -R
-chmod 500 ./{*.so,*.so.2,ts3server_startscript.sh,sql,logs}
-rm -rf {doc,CHANGELOG,serverquerydocs,redist}
+# Create directories
+mkdir ./{files,logs}
 
-echo "Installation complete!"
+# Set permissions and remove unused files
+chown 1000:1000 -R ./{.,files,logs}
+chmod 400 -R ./*
+chmod 500 ./{*.so,*.so.2,ts3server_startscript.sh,ts3server,sql,sql/*/}
+chmod 700 -R ./{files,logs}
+rm -rf {doc,CHANGELOG,serverquerydocs,redist,teamspeak.tar.bz2}
