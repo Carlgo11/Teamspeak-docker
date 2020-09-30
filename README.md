@@ -1,16 +1,19 @@
 # TeamSpeak3 Server as a Container
 
-![License](https://img.shields.io/github/license/Carlgo11/Teamspeak-docker?color=00b1d6&style=for-the-badge)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Carlgo11/Teamspeak-docker?style=for-the-badge)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Carlgo11/Teamspeak-docker/Docker?style=for-the-badge)  
+[![License](https://img.shields.io/github/license/Carlgo11/Teamspeak-docker?color=00b1d6&style=for-the-badge)](LICENSE)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Carlgo11/Teamspeak-docker?style=for-the-badge)](https://github.com/Carlgo11/Teamspeak-docker/releases/latest)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Carlgo11/Teamspeak-docker/Docker?style=for-the-badge)](https://github.com/Carlgo11/Teamspeak-docker/actions?query=workflow%3ADocker)
+[![Docker](https://img.shields.io/badge/Docker-Download-2496ed?style=for-the-badge&logo=docker&logoColor=fff)](https://hub.docker.com/r/carlgo11/teamspeak)  
 
 This package is a minimal version of TeamSpeak3 as a Docker container.  
 The aim of this project is to provide an always-up-to-date highly secure way to install and run a TeamSpeak3 server regardless of the OS that the host runs on.
 
 ## Requirements
 
-To use this project you'll need:  
-Docker, Docker-compose, Git
+To use this project you'll need:
+* Docker
+* Docker-compose
+* Git
 
 Optionally, if you intend to connect the ts3 server via MariaDB you'll need a MariaDB server and socket available for the instance to use.
 
@@ -43,7 +46,7 @@ You'll find the ServerAdmin token in the window that you started the container i
 
 ### Further options
 
-* Console access - In `docker-compose.yml` add `- "10011"` to the list of ports and restart the container.
+* Console access - In `docker-compose.yml` add `- "10011:10011"` to the list of ports and restart the container.
 
 ## LICENSE
 
