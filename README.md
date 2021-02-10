@@ -11,7 +11,6 @@ The aim of this project is to provide an always-up-to-date highly secure way to 
 ## Requirements
 
 To use this project you'll need:
-Docker, Docker-compose, Git
 * Docker
 * Docker-compose
 * Git
@@ -22,29 +21,29 @@ Optionally, if you intend to connect the ts3 server via MariaDB you'll need a Ma
 
 ### MariaDB (MySQL)
 
-1. Download the files in [examples/mariadb](mariadb).
+1. Download the files in [examples/mariadb][mariadb].
 1. Enter the MariaDB credentials in `mariadb_config.ini`.
 1. Run `docker-compose up` (append `-d` to run in the background)
 
 ### SQLite
 
-1. Download the files in [examples/sqlite](sqlite).
+1. Download the files in [examples/sqlite][sqlite].
 1. Run `docker-compose up` (append `-d` to run in the background)
 
 ### Port configuration
 
-A list of all incoming and outgoing ports that TS3 uses can be found [here](ports).
+A list of all incoming and outgoing ports that TS3 uses can be found [here][ports].  
 If you need an optional feature, such as TSDNS or ServerQuery, add the appropriate port to `ports:` in `docker-compose.yml`
 
 ## LICENSE
 
-This work is licensed under [CC BY 4.0](cc). See the full license [here][license].
+This work is licensed under [CC BY 4.0][cc]. See the full license [here][license].
 
 [license]: LICENSE
 [cc]: https://creativecommons.org/licenses/by/4.0/
 [version]: https://github.com/Carlgo11/Teamspeak-docker/releases/latest
 [workflow]: https://github.com/Carlgo11/Teamspeak-docker/actions?query=workflow%3ADocker
 [docker]: https://hub.docker.com/r/carlgo11/teamspeak
-[mariadb]: examples/mariadb/
-[sqlite]: examples/sqlite/
+[mariadb]: https://github.com/Carlgo11/Teamspeak-docker/tree/master/examples/mariadb
+[sqlite]: https://github.com/Carlgo11/Teamspeak-docker/tree/master/examples/sqlite
 [ports]: https://support.teamspeak.com/hc/en-us/articles/360002712257
