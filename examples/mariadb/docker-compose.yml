@@ -1,0 +1,13 @@
+version: "3"
+services:
+  teamspeak:
+    image: carlgo11/teamspeak
+    ports:
+    - "9987:9987/udp" # VOIP
+    - "30033:30033/tcp" # File Transfer
+    volumes:
+    - ./ts3server_config.ini:/teamspeak/ts3server.ini:ro
+    - ./ts3db_mariadb.ini:/teamspeak/ts3db_mariadb.ini:ro
+    - /var/run/mysqld/:/var/run/mysqld/
+    - ./files/:/teamspeak/files
+    restart: always

@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/github/license/Carlgo11/Teamspeak-docker?color=00b1d6&style=for-the-badge)][license]
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Carlgo11/Teamspeak-docker?style=for-the-badge)][version]
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Carlgo11/Teamspeak-docker/Docker?style=for-the-badge)][workflow]
-[![Docker](https://img.shields.io/badge/Docker-Download-2496ed?style=for-the-badge&logo=docker&logoColor=fff)][docker]    
+[![Docker](https://img.shields.io/docker/image-size/carlgo11/teamspeak?label=Docker&sort=semver&style=for-the-badge)][docker]    
 
 This package is a minimal version of TeamSpeak3 as a Docker container.  
 The aim of this project is to provide an always-up-to-date highly secure way to install and run a TeamSpeak3 server regardless of the OS that the host runs on.
@@ -20,73 +20,31 @@ Optionally, if you intend to connect the ts3 server via MariaDB you'll need a Ma
 
 ## Installation
 
-### SQLite
-
-1. Download this project.
-    ```BASH
-    git clone https://github.com/Carlgo11/Teamspeak-docker.git
-    cd Teamspeak-docker
-    ```
-
-1. Change the name of `ts3server_config.ini.sqlite-example` to `ts3server_config.ini`.
-    ```BASH
-    mv ts3server_config.ini.sqlite-example ts3server_config.ini
-    ```
-
-1. In `docker-compose.yml` add `- ./ts3server.sqlitedb:/teamspeak/ts3server.sqlitedb` to the volumes list.
-    ```YAML
-    volumes:
-      - ./ts3server_config.ini:/teamspeak/ts3server.ini
-      - ./ts3server.sqlitedb:/teamspeak/ts3server.sqlitedb
-    ```
-
-1. Build the container. 
-    ```BASH
-    docker-compose up --build
-    ```
-
-1. Connect to the TeamSpeak3 server using the host IP.  
-You'll find the ServerAdmin token in the window that you started the container in.
-
 ### MariaDB (MySQL)
 
-1. Download this project.
-    ```BASH
-    git clone https://github.com/Carlgo11/Teamspeak-docker.git
-    cd Teamspeak-docker
-    ```
+1. Download the files in [examples/mariadb](mariadb).
+1. Enter the MariaDB credentials in `mariadb_config.ini`.
+1. Run `docker-compose up` (append `-d` to run in the background)
 
-1. Change the name of `ts3server_config.ini.mariadb-example` to `ts3server_config.ini`
-    ```BASH
-    mv ts3server_config.ini.mariadb-example ts3server_config.ini
-    ```
+### SQLite
 
-1. Add the MariaDB credentials to `mariadb_config.ini`
+1. Download the files in [examples/sqlite](sqlite).
+1. Run `docker-compose up` (append `-d` to run in the background)
 
-1. Open `docker-compose.yml` and append the following lines at the end of the volume tag:
-    ```YAML
-    volumes:
-      - ./ts3db_mariadb.ini:/teamspeak/ts3db_mariadb.ini
-      - /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock
-    ```
+### Port configuration
 
-1. Build the container.
-    ```BASH
-    docker-compose up --build
-    ```
-
-1. Connect to the TeamSpeak3 server using the host IP.  
-You'll find the ServerAdmin token in the window that you started the container in.
-
-### Further options
-
-* Console access - In `docker-compose.yml` add `- "10011:10011"` to the list of ports and restart the container.
+A list of all incoming and outgoing ports that TS3 uses can be found [here](ports).
+If you need an optional feature, such as TSDNS or ServerQuery, add the appropriate port to `ports:` in `docker-compose.yml`
 
 ## LICENSE
 
-This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See the full license [here][license].
+This work is licensed under [CC BY 4.0](cc). See the full license [here][license].
 
 [license]: LICENSE
+[cc]: https://creativecommons.org/licenses/by/4.0/
 [version]: https://github.com/Carlgo11/Teamspeak-docker/releases/latest
 [workflow]: https://github.com/Carlgo11/Teamspeak-docker/actions?query=workflow%3ADocker
 [docker]: https://hub.docker.com/r/carlgo11/teamspeak
+[mariadb]: examples/mariadb/
+[sqlite]: examples/sqlite/
+[ports]: https://support.teamspeak.com/hc/en-us/articles/360002712257
