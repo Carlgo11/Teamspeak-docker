@@ -55,4 +55,4 @@ jobs:
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           echo IMAGE_NAME=$IMAGE_NAME
           echo VERSION=$VERSION
-          docker buildx build --platform linux/amd64,linux/arm/v7,linux/arm64 --rm --tag carlgo11/$IMAGE_NAME:latest --tag carlgo11/$IMAGE_NAME:$VERSION --push --compress .
+          docker buildx build --platform linux/amd64 --rm --tag carlgo11/$IMAGE_NAME:latest --tag carlgo11/$IMAGE_NAME:$VERSION --push --compress .
