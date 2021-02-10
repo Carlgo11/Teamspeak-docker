@@ -8,4 +8,4 @@ services:
     - "30033:30033"
     - "4114:4114"
     volumes:
-    - ./ts3server_config.ini:/teamspeak/ts3server.ini
+    - ./ts3server_config.ini:/teamspeak/ts3server.ini:ro
