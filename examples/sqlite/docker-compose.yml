@@ -1,4 +1,4 @@
-version: "3"
+version: "3.2"
 services:
   teamspeak:
     image: carlgo11/teamspeak

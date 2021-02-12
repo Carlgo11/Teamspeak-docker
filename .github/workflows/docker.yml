@@ -10,4 +10,3 @@ jobs:
 
     - name: Build Docker container
       run: docker build .
-

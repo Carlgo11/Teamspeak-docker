@@ -2,3 +2,4 @@
 ./ts3db_mariadb.ini
 ./ts3server_config.ini
 ./docker-compose.yml
+./docker-compose.yml
