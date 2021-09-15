@@ -23,9 +23,9 @@ cat <<- EOF >ts3db_mariadb.ini
 		password='${MARIADB_PASSWORD}'
 		database='${MARIADB_DATABASE}'
 		socket='${MARIADB_SOCKET}'
-		wait_until_ready='${TS3SERVER_DB_WAITUNTILREADY:-20}'
+		wait_until_ready=20
 	EOF
 chmod 400 ts3db_mariadb.ini
 
 for file in teamspeak.tar.bz2 doc serverquerydocs CHANGELOG LICENSE ts3server_minimal_runscript.sh ts3server_startscript.sh redist; do rm -rf $file; done
-for file in *.so *.so.2 ts3server sql sql/*/; do chmod 500 $file; done
+for file in *.so *.so.2 ts3server sql sql/*/; do chmod 500 "$file"; done
