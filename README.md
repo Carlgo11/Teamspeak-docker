@@ -11,29 +11,40 @@ The aim of this project is to provide an always-up-to-date highly secure way to 
 ## Requirements
 
 To use this project you'll need:
-* Docker
 * Docker-compose
-* Git
-
-Optionally, if you intend to connect the ts3 server via MariaDB you'll need a MariaDB server and socket available for the instance to use.
+* cURL/Wget
 
 ## Installation
 
 ### MariaDB (MySQL)
 
 1. Download the files in [examples/mariadb][mariadb].
-1. Enter the MariaDB credentials in `mariadb_config.ini`.
-1. Run `docker-compose up` (append `-d` to run in the background)
+   ```sh
+   wget https://raw.githubusercontent.com/Carlgo11/Teamspeak-docker/master/examples/mariadb/docker-compose.yml
+   wget https://raw.githubusercontent.com/Carlgo11/Teamspeak-docker/master/examples/mariadb/ts3server_config.ini
+   ```
+1. Enter the database credentials in `docker-compose.yml`.
+1. Start the docker containers (append `-d` to run in the background.)
+   ```sh
+   docker-compose up -d
+   ```
 
 ### SQLite
 
 1. Download the files in [examples/sqlite][sqlite].
-1. Run `docker-compose up` (append `-d` to run in the background)
+   ```shell
+   wget https://raw.githubusercontent.com/Carlgo11/Teamspeak-docker/master/examples/sqlite/docker-compose.yml
+   wget https://raw.githubusercontent.com/Carlgo11/Teamspeak-docker/master/examples/sqlite/ts3server_config.ini
+   ```
+1. Start the docker containers (append `-d` to run in the background.)
+   ```sh
+   docker-compose up -d
+   ```
 
 ### Port configuration
 
 A list of all incoming and outgoing ports that TS3 uses can be found [here][ports].  
-If you need an optional feature, such as TSDNS or ServerQuery, add the appropriate port to `ports:` in `docker-compose.yml`
+If you need an optional feature, such as TSDNS or ServerQuery, add the appropriate port to the `ports` array in `docker-compose.yml`
 
 ## LICENSE
 
