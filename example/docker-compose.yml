@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 services:
 
   db:
@@ -6,29 +6,23 @@ services:
     container_name: teamspeak_db
     restart: unless-stopped
     volumes:
-      - db:/var/lib/mysql
+      - "db:/var/lib/mysql"
     environment:
       MARIADB_RANDOM_ROOT_PASSWORD: 1
-      MARIADB_DATABASE: teamspeak
-      MARIADB_USER: teamspeak
-      MARIADB_PASSWORD: teamspeak
+    env_file: .env
 
   teamspeak:
     image: carlgo11/teamspeak
     container_name: teamspeak_server
     restart: unless-stopped
+    env_file: .env
     ports:
       - "9987:9987/udp" # VOIP
-      - "30033:30033/tcp" # File Transfer
+      - "30033:30033" # File Transfer
     volumes:
       - "./ts3server_config.ini:/teamspeak/ts3server.ini:ro"
       - "files:/teamspeak/files"
-    environment:
-      MARIADB_HOST: db
-      MARIADB_PORT: 3306
-      MARIADB_USER: teamspeak
-      MARIADB_PASSWORD: teamspeak
-      MARIADB_DATABASE: teamspeak
+    tmpfs: "/teamspeak:exec,uid=1000,mode=700"
 
 volumes:
   db:

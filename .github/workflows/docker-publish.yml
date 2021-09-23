@@ -32,4 +32,4 @@ jobs:
           push: true
           tags: |
             carlgo11/teamspeak:latest
-            ghcr.io/carlgo11/teamspeak-docker:latest
+            ghcr.io/carlgo11/teamspeak:latest
