@@ -1,4 +1,4 @@
-name: Publish Released Images
+name: Publish Released Build
 
 on:
   release:
@@ -15,8 +15,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-            teamspeak
-            ghcr.io/teamspeak
+            Carlgo11/teamspeak
+            ghcr.io/Carlgo11/teamspeak
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
