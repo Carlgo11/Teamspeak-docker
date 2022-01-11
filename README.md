@@ -35,10 +35,9 @@ If you need an optional feature, such as TSDNS or ServerQuery, add the appropria
 
 ## LICENSE
 
-This work is licensed under [CC BY 4.0][cc]. See the full license [here][license].
+This work is licensed under GPL-3.0. See the full license [here][license].
 
 [license]: LICENSE
-[cc]: https://creativecommons.org/licenses/by/4.0/
 [version]: https://github.com/Carlgo11/Teamspeak-docker/releases/latest
 [workflow]: https://github.com/Carlgo11/Teamspeak-docker/actions/workflows/docker-publish.yml
 [docker]: https://hub.docker.com/r/carlgo11/teamspeak
